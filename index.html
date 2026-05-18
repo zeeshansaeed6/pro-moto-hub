@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Moto Hub | Premium Two-Wheeler Services Hyderabad</title>
+    <style>
+        /* --- Global Reset & Variables --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-dark: #121212;
+            --bg-surface: #1e1e1e;
+            --bg-card: #252525;
+            --primary: #ff6a00;
+            --primary-hover: #e05d00;
+            --text-main: #ffffff;
+            --text-muted: #b3b3b3;
+            --border: #333333;
+            --whatsapp-green: #25D366;
+            --emergency-red: #d32f2f;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* --- Navigation Bar --- */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--primary-hover);
+            color: white;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 12rem 2rem 6rem 2rem;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(18,18,18,1)), 
+                        url('https://images.unsplash.com/photo-1615887023516-9b6bcd559e87?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            text-align: center;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* --- Feature Highlight Banner (Pick-Up & Drop) --- */
+        .feature-banner {
+            background: linear-gradient(90deg, #1f140e 0%, #3a1c06 100%);
+            border: 1px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            max-width: 1200px;
+            margin: -3rem auto 3rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .feature-banner-icon {
+            font-size: 2.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        .feature-banner-text h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .feature-banner-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 0.5rem auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* --- Brands Grid --- */
+        .brands-container {
+            background-color: var(--bg-surface);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .brands-container p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .brands-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .brand-badge {
+            background-color: var(--bg-card);
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        .brand-badge:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* --- Services Grid --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s, border-color 0.3s;
+            text-align: left;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- Before/After Gallery --- */
+        .gallery-section {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab-btn {
+            background-color: var(--bg-card);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .gallery-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .gallery-container {
+            display: none;
+        }
+
+        .gallery-container.active {
+            display: grid;
+        }
+
+        .gallery-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .gallery-box img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-label {
+            padding: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            background-color: #1a1a1a;
+        }
+
+        .label-before { color: #ff4444; }
+        .label-after { color: #00c851; }
+
+        /* --- FAQ Accordion --- */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: var(--bg-card);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            border-top: 1px solid transparent;
+        }
+
+        .faq-item.open .faq-answer {
+            padding: 1.2rem 1.5rem;
+            max-height: 200px;
+            border-color: var(--border);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* --- Google-Style Review Grid Styling --- */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: rgba(255, 106, 0, 0.15);
+            font-family: Georgia, serif;
+        }
+
+        .review-text {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reviews-badge-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .google-rating-score {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .google-meta-text {
+            text-align: left;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .verified-badge {
+            background-color: rgba(0, 200, 81, 0.1);
+            color: #00c851;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .reviewer-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .avatar-b { background-color: #007bff; }
+        .avatar-c { background-color: #28a745; }
+
+        .reviewer-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .review-timestamp {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .review-stars-row {
+            color: #ffbb33;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .write-review-container {
+            text-align: center;
+            margin-top: 2.5rem;
+        }
+
+        .write-review-btn {
+            background-color: #34a853; 
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 0.8rem 2.5rem;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: 0 4px 12px rgba(52, 168, 83, 0.3);
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .write-review-btn:hover {
+            background-color: #2d8e47;
+            transform: translateY(-2px);
+        }
+
+        /* --- Option 3: Live Timing Status Badge Classes --- */
+        .live-status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .status-open {
+            background-color: rgba(0, 200, 81, 0.15);
+            color: #00c851;
+            border: 1px solid #00c851;
+        }
+
+        .status-closed {
+            background-color: rgba(211, 47, 47, 0.15);
+            color: #ff4444;
+            border: 1px solid #ff4444;
+        }
+
+        /* --- About & Timing Section --- */
+        .info-section {
+            background-color: var(--bg-surface);
+            border-radius: 12px;
+            padding: 4rem 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .info-block h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-block p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .info-block strong {
+            color: var(--text-main);
+        }
+
+        .timing-list {
+            list-style: none;
+        }
+
+        .timing-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .timing-list li strong {
+            color: var(--text-main);
+        }
+
+        /* --- Contact Form & Map Section --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .contact-form-container {
+            padding: 3rem;
+        }
+
+        .contact-form-container h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Emergency SOS Widget Button */
+        .emergency-btn {
+            background-color: var(--emergency-red);
+            color: white;
+            padding: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+            transition: background-color 0.3s;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 10px rgba(211, 47, 47, 0.4);
+        }
+
+        .emergency-btn:hover {
+            background-color: #b71c1c;
+        }
+
+        .or-divider {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .map-container {
+            position: relative;
+            min-height: 400px;
+            background-color: #2a2a2a;
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- Floating Sticky Elements --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #0b0b0b;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+            .map-container {
+                min-height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            .hero {
+                padding-top: 10rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .feature-banner {
+                flex-direction: column;
+                text-align: center;
+                margin: -2rem 1rem 3rem 1rem;
+                padding: 1.2rem;
+            }
+            .gallery-section {
+                padding: 1.5rem;
+            }
+            .map-container {
+                min-height: 300px;
+            }
+            .contact-form-container {
+                padding: 2rem;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">Pro<span>Moto</span>Hub</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Our Work</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                    <li><a href="#about">Hours</a></li>
+                    <li><a href="#contact">Book Slot</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+919346227717" class="nav-cta">Call Now</a>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Expert Care For Your <span>Two-Wheeler</span></h1>
+        <p>Your one-stop destination for professional motorcycle and scooter servicing, performance diagnostics, and genuine spares in Hyderabad.</p>
+        <a href="#contact" class="btn">Book via WhatsApp</a>
+    </section>
+
+    <div class="feature-banner">
+        <div class="feature-banner-icon">🛵</div>
+        <div class="feature-banner-text">
+            <h4>Hassle-Free Pick-Up & Drop Available!</h4>
+            <p>Busy schedule? We provide secure bike pick-up and drop-off services right across Yousufguda, Sri Nagar Colony, and adjacent areas.</p>
+        </div>
+    </div>
+
+    <section id="services">
+        
+        <div class="brands-container">
+            <p>Expert Servicing For All Major Brands</p>
+            <div class="brands-grid">
+                <div class="brand-badge">ROYAL ENFIELD</div>
+                <div class="brand-badge">KTM</div>
+                <div class="brand-badge">YAMAHA</div>
+                <div class="brand-badge">HONDA</div>
+                <div class="brand-badge">SUZUKI</div>
+                <div class="brand-badge">BAJAJ</div>
+                <div class="brand-badge">TVS</div>
+                <div class="brand-badge">HERO</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>General Servicing</h3>
+                <p>Comprehensive inspection, fluid top-ups, filter cleaning, brake adjustments, and complete safety checks to keep your ride running smoothly.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Engine Works</h3>
+                <p>Expert diagnostic scanning, engine tuning, minor adjustments, and major mechanical overhauls handled by experienced specialists.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚿</div>
+                <h3>Premium Washing</h3>
+                <p>Deep pressure washing, dirt removal, foam degreasing, and polishing detailing to bring back that showroom shine.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⛓️</div>
+                <h3>Spare Parts & Repair</h3>
+                <p>Faulty component replacement and reliable repair of critical assemblies using authentic, durable spare parts.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏍️</div>
+                <h3>Two-Wheeler Repair</h3>
+                <p>From scooters to superbikes, we offer reliable breakdown diagnostics, electrical troubleshooting, and quick component repairs.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title">Transformation Gallery</h2>
+        <div class="gallery-section">
+            <div class="gallery-tabs">
+                <button class="tab-btn active" onclick="switchTab('wash')">Premium Wash</button>
+                <button class="tab-btn" onclick="switchTab('engine')">Engine & Repairs</button>
+            </div>
+
+            <div id="wash-gallery" class="gallery-display gallery-container active">
+                <div class="gallery-box">
+                    <img src="image_7c8fd3.jpg" alt="Muddy chain and bodywork">
+                    <div class="gallery-label label-before">Before (Dust & Grime)</div>
+                </div>
+                <div class="gallery-box">
+                    <img src="image_7c97d2.jpg" alt="Clean shining motorcycle profile">
+                    <div class="gallery-label label-after">After (Pro Foam Wash)</div>
+                </div>
+            </div>
+
+            <div id="engine-gallery" class="gallery-display gallery-container">
+                <div class="gallery-box">
+                    <img src="image_7cede7.jpg" alt="Worn out disassembled mechanics">
+                    <div class="gallery-label label-before">Before (Engine Issue)</div>
+                </div>
+                <div class="gallery-box">
+                    <img src="image_7cf1cc.jpg" alt="Assembled perfectly tuned machine">
+                    <div class="gallery-label label-after">After (Restored & Tuned)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How do I arrange the Pick-up & Drop service?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    When filling out our online booking form below, simply choose 'Yes' for the Pick-up & Drop field. Once received, our team will reach out via phone or WhatsApp to confirm your location and arrange a rider.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do you use authentic manufacturer spare parts?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes. At Pro Moto Hub, we deal strictly in genuine OEM parts and high-quality lubricants to guarantee optimal vehicle safety, performance, and long life.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What areas do you provide breakdown assistance for?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    We offer immediate dispatch assistance across Yousufguda, Sri Nagar Colony, Navodaya Colony, Banjara Hills, and adjacent zones. Simply tap the red emergency button below for a rapid response.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <h2 class="section-title">Customer Reviews</h2>
+        
+        <div class="reviews-badge-header">
+            <div class="google-rating-score">4.9</div>
+            <div class="google-meta-text">
+                <div style="color: #ffbb33; font-size: 1.2rem;">★★★★★</div>
+                <div>Based on local rider feedback • <strong>Yousufguda, HYD</strong></div>
+            </div>
+        </div>
+
+        <div class="testimonials-grid">
+            
+            <div class="testimonial-card">
+                <div class="reviewer-profile">
+                    <div class="profile-avatar">RK</div>
+                    <div class="reviewer-info">
+                        <h4>Rahul K. <span class="verified-badge">✓ Verified</span></h4>
+                        <span class="review-timestamp">2 weeks ago</span>
+                    </div>
+                </div>
+                <div class="review-stars-row">★★★★★</div>
+                <p class="review-text">"Brought my Classic 350 for a full engine check and general service. The acceleration feels incredibly smooth now. Easily the most reliable bike garage near Sri Nagar Colony."</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="reviewer-profile">
+                    <div class="profile-avatar avatar-b">SK</div>
+                    <div class="reviewer-info">
+                        <h4>Suresh Kumar <span class="verified-badge">✓ Verified</span></h4>
+                        <span class="review-timestamp">1 month ago</span>
+                    </div>
+                </div>
+                <div class="review-stars-row">★★★★★</div>
+                <p class="review-text">"Extremely satisfied with their foam wash and chain maintenance. They use premium products, clear pricing structures, and didn't make me wait unnecessary hours."</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="reviewer-profile">
+                    <div class="profile-avatar avatar-c">MA</div>
+                    <div class="reviewer-info">
+                        <h4>Mohammed Ali <span class="verified-badge">✓ Verified</span></h4>
+                        <span class="review-timestamp">3 days ago</span>
+                    </div>
+                </div>
+                <div class="review-stars-row">★★★★★</div>
+                <p class="review-text">"Highly professional crew. They diagnosed an electrical issue on my KTM that two other shops couldn't fix. The free pickup and drop facility saved my weekend completely!"</p>
+            </div>
+
+        </div>
+
+        <div class="write-review-container">
+            <a href="https://search.google.com/local/writereview?placeid=ChIJXTDnPBiRyzsRzii8biTp1Jg" 
+               target="_blank" 
+               class="write-review-btn">
+               ✏️ Write a Google Review
+            </a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="info-section">
+            <div class="info-grid">
+                
+                <div class="info-block">
+                    <h3>Pro Moto Hub</h3>
+                    <p>Located in the heart of Yousufguda/Sri Nagar Colony, Pro Moto Hub is a center for premium bike repair and maintenance. Our mechanics combine technical precision with high-quality parts to extend your vehicle's lifecycle and optimize performance.</p>
+                    <p><strong>Address:</strong><br>
+                    8-3-678/42/c/6, Near Ganapathi Complex,<br>
+                    Sri Nagar Colony, Navodaya Colony,<br>
+                    Yousufguda, Hyderabad, Telangana 500073</p>
+                    <p><strong>Phone:</strong> <a href="tel:+919346227717" style="color: var(--primary); text-decoration: none;">093462 27717</a></p>
+                </div>
+
+                <div class="info-block">
+                    <h3>Operating Hours</h3>
+                    
+                    <div id="liveStatusBox" class="live-status-badge status-closed">Checking workshop status...</div>
+
+                    <ul class="timing-list">
+                        <li><span>Monday</span> <strong>9:00 AM - 9:00 PM</strong></li>
+                        <li><span>Tuesday</span> <strong>9:00 AM - 9:00 PM</strong></li>
+                        <li><span>Wednesday</span> <strong>9:00 AM - 9:00 PM</strong></li>
+                        <li><span>Thursday</span> <strong>9:00 AM - 9:00 PM</strong></li>
+                        <li><span>Friday</span> <strong>9:00 AM - 9:00 PM</strong></li>
+                        <li><span>Saturday</span> <strong>9:00 AM - 9:00 PM</strong></li>
+                        <li><span>Sunday</span> <strong>9:00 AM - 5:00 PM</strong></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Schedule a Visit</h2>
+        
+        <div class="contact-layout">
+            
+            <div class="contact-form-container">
+                
+                <button class="emergency-btn" onclick="sendEmergencySOS()">🚨 Emergency Breakdown Help</button>
+                
+                <div class="or-divider">— OR BOOK STANDARD APPOINTMENT —</div>
+
+                <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" required placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required placeholder="Enter your mobile number">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Select Service Needed</label>
+                        <select id="service" required>
+                            <option value="">-- Choose a Service --</option>
+                            <option value="General Servicing">General Servicing</option>
+                            <option value="Engine Works">Engine Works</option>
+                            <option value="Washing & Detailing">Washing & Detailing</option>
+                            <option value="Spare Parts & Repair">Spare Parts & Repair</option>
+                            <option value="Two-Wheeler Repair">Two-Wheeler Repair / Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pickup">Do you need Pick-Up & Drop service?</label>
+                        <select id="pickup" required>
+                            <option value="No, I will visit the workshop">No, I will visit the workshop myself</option>
+                            <option value="Yes, please arrange Pick-Up & Drop">Yes, please arrange Pick-Up & Drop</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Vehicle Model & Location/Notes (Optional)</label>
+                        <textarea id="notes" rows="3" placeholder="e.g., Activa 6G - Need pickup from Navodaya Colony"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Send Booking via WhatsApp</button>
+                </form>
+            </div>
+
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15226.790924976766!2d78.4328535!3d17.432879!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91183ce7305d%3A0x98d4e9246ebc28ce!2sPRO%20MOTO%20HUB!5e0!3m2!1sen!2sin!4v1716024900000!5m2!1sen!2sin" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <a href="https://wa.me/919346227717?text=Hi%20Pro%20Moto%20Hub!%20I%20have%20a%20question%20about%20servicing%20my%20bike." class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+        💬
+    </a>
+
+    <script>
+        // Gallery Tab Switcher Logic
+        function switchTab(type) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            const displays = document.querySelectorAll('.gallery-container');
+            displays.forEach(disp => disp.classList.remove('active'));
+            
+            event.currentTarget.classList.add('active');
+            document.getElementById(`${type}-gallery`).classList.add('active');
+        }
+
+        // FAQ Collapse Toggle Animation Logic
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            item.classList.toggle('open');
+        }
+
+        // Option 3: Real-Time Operational Tracker Logic Script
+        function updateLiveShopStatus() {
+            const statusBox = document.getElementById('liveStatusBox');
+            const now = new Date();
+            const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+            const currentHour = now.getHours();
+
+            let isOpen = false;
+            let closingTime = "9:00 PM";
+
+            if (currentDay === 0) { // Sunday schedule checks
+                if (currentHour >= 9 && currentHour < 17) {
+                    isOpen = true;
+                    closingTime = "5:00 PM";
+                }
+            } else { // Standard Weekday/Saturday schedule checks
+                if (currentHour >= 9 && currentHour < 21) {
+                    isOpen = true;
+                }
+            }
+
+            if (isOpen) {
+                statusBox.className = "live-status-badge status-open";
+                statusBox.innerHTML = `🟢 Open Now • Closes at ${closingTime}`;
+            } else {
+                statusBox.className = "live-status-badge status-closed";
+                statusBox.innerHTML = "🔴 Closed Now • Opens at 9:00 AM";
+            }
+        }
+
+        // Trigger time checker immediately upon load
+        window.addEventListener('DOMContentLoaded', updateLiveShopStatus);
+
+        // Emergency SOS Quick Dispatch Trigger 
+        function sendEmergencySOS() {
+            const whatsappNumber = "919346227717";
+            const sosMessage = `*🚨 EMERGENCY BREAKDOWN ASSISTANCE - PRO MOTO HUB* %0A%0A` + 
+                               `My vehicle has broken down nearby and I need immediate on-site help or towing assistance. Please check my message and coordinate back.`;
+            window.open(`https://wa.me/${whatsappNumber}?text=${sosMessage}`, '_blank');
+        }
+
+        // Regular Booking Submission Process
+        function sendToWhatsApp(event) {
+            event.preventDefault(); 
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const pickup = document.getElementById('pickup').value;
+            const notes = document.getElementById('notes').value || "None provided";
+            
+            const whatsappNumber = "919346227717"; 
+            
+            const textMessage = `*New Booking Request - Pro Moto Hub*%0A%0A` +
+                                `*Customer Name:* ${encodeURIComponent(name)}%0A` +
+                                `*Customer Contact:* ${encodeURIComponent(phone)}%0A` +
+                                `*Service Needed:* ${encodeURIComponent(service)}%0A` +
+                                `*Pick-Up Status:* ${encodeURIComponent(pickup)}%0A` +
+                                `*Vehicle/Notes/Location:* ${encodeURIComponent(notes)}`;
+            
+            window.open(`https://wa.me/${whatsappNumber}?text=${textMessage}`, '_blank');
+        }
+    </script>
+
+</body>
+</html>
