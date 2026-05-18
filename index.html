@@ -561,7 +561,7 @@
             transform: translateY(-2px);
         }
 
-        /* --- Option 3: Live Timing Status Badge Classes --- */
+        /* --- Live Timing Status Badge Core Style Rules --- */
         .live-status-badge {
             display: inline-block;
             padding: 0.3rem 0.8rem;
@@ -584,6 +584,46 @@
             background-color: rgba(211, 47, 47, 0.15);
             color: #ff4444;
             border: 1px solid #ff4444;
+        }
+
+        /* --- Grid Dropdown Layout Row --- */
+        .form-row-group {
+            display: flex;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .form-row-group .form-group {
+            flex: 1;
+        }
+
+        /* --- Option 1: Pick-Up Zone Distance Checker Style Configurations --- */
+        .pickup-zone-status {
+            display: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            margin-top: -0.8rem;
+            margin-bottom: 1rem;
+            animation: slideIn 0.3s ease-in-out forwards;
+        }
+
+        .zone-free {
+            background-color: rgba(0, 200, 81, 0.1);
+            color: #00c851;
+            border-left: 3px solid #00c851;
+        }
+
+        .zone-dispatch {
+            background-color: rgba(255, 187, 51, 0.1);
+            color: #ffbb33;
+            border-left: 3px solid #ffbb33;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-3px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* --- About & Timing Section --- */
@@ -787,6 +827,10 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
+            .form-row-group {
+                flex-direction: column;
+                gap: 0;
+            }
             .feature-banner {
                 flex-direction: column;
                 text-align: center;
@@ -949,7 +993,9 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    Yes. At Pro Moto Hub, we deal strictly in genuine OEM parts and high-quality lubricants to guarantee optimal vehicle safety, performance, and long life.
+
+http://googleusercontent.com/map_location_reference/1
+                    Yes. At [Pro Moto Hub](http://googleusercontent.com/map_location_reference/0), we deal strictly in genuine OEM parts and high-quality lubricants to guarantee optimal vehicle safety, performance, and long life.
                 </div>
             </div>
 
@@ -1032,7 +1078,7 @@
                 
                 <div class="info-block">
                     <h3>Pro Moto Hub</h3>
-                    <p>Located in the heart of Yousufguda/Sri Nagar Colony, Pro Moto Hub is a center for premium bike repair and maintenance. Our mechanics combine technical precision with high-quality parts to extend your vehicle's lifecycle and optimize performance.</p>
+                    <p>Located in the heart of Yousufguda/Sri Nagar Colony, [Pro Moto Hub](http://googleusercontent.com/map_location_reference/2) is a trusted center for premium bike repair and maintenance. Our mechanics combine technical precision with high-quality parts to extend your vehicle's lifecycle and optimize performance.</p>
                     <p><strong>Address:</strong><br>
                     8-3-678/42/c/6, Near Ganapathi Complex,<br>
                     Sri Nagar Colony, Navodaya Colony,<br>
@@ -1080,6 +1126,35 @@
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" required placeholder="Enter your mobile number">
                     </div>
+
+                    <div class="form-row-group">
+                        <div class="form-group">
+                            <label for="bikeBrand">Vehicle Brand</label>
+                            <select id="bikeBrand" required>
+                                <option value="">-- Select Brand --</option>
+                                <option value="Royal Enfield">Royal Enfield</option>
+                                <option value="KTM">KTM</option>
+                                <option value="Yamaha">Yamaha</option>
+                                <option value="Honda">Honda</option>
+                                <option value="Suzuki">Suzuki</option>
+                                <option value="Bajaj">Bajaj</option>
+                                <option value="TVS">TVS</option>
+                                <option value="Hero">Hero</option>
+                                <option value="Other">Other Brand</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bikeType">Vehicle Type</label>
+                            <select id="bikeType" required>
+                                <option value="">-- Select Type --</option>
+                                <option value="Scooter">Scooter / Scooty</option>
+                                <option value="Commuter Bike">Commuter Bike (100-150cc)</option>
+                                <option value="Premium Bike">Premium / Cruiser (150-400cc)</option>
+                                <option value="Superbike">Superbike (400cc+)</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="service">Select Service Needed</label>
                         <select id="service" required>
@@ -1091,17 +1166,26 @@
                             <option value="Two-Wheeler Repair">Two-Wheeler Repair / Other</option>
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="pickup">Do you need Pick-Up & Drop service?</label>
-                        <select id="pickup" required>
+                        <select id="pickup" required onchange="togglePickupField()">
                             <option value="No, I will visit the workshop">No, I will visit the workshop myself</option>
                             <option value="Yes, please arrange Pick-Up & Drop">Yes, please arrange Pick-Up & Drop</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="notes">Vehicle Model & Location/Notes (Optional)</label>
-                        <textarea id="notes" rows="3" placeholder="e.g., Activa 6G - Need pickup from Navodaya Colony"></textarea>
+
+                    <div id="pickupLocationGroup" class="form-group" style="display: none;">
+                        <label for="pickupLocation">Your Neighborhood / Colony Name</label>
+                        <input type="text" id="pickupLocation" placeholder="e.g., Yousufguda, Navodaya Colony, Madhapur" oninput="checkPickupZone()">
                     </div>
+                    <div id="pickupZoneBadge" class="pickup-zone-status"></div>
+
+                    <div class="form-group">
+                        <label for="notes">Vehicle Model & Special Notes (Optional)</label>
+                        <textarea id="notes" rows="3" placeholder="e.g., Activa 6G - Brake squeaking issue"></textarea>
+                    </div>
+
                     <button type="submit" class="btn" style="width: 100%;">Send Booking via WhatsApp</button>
                 </form>
             </div>
@@ -1141,7 +1225,7 @@
             item.classList.toggle('open');
         }
 
-        // Option 3: Real-Time Operational Tracker Logic Script
+        // Real-Time Operational Tracker Logic Script
         function updateLiveShopStatus() {
             const statusBox = document.getElementById('liveStatusBox');
             const now = new Date();
@@ -1171,6 +1255,54 @@
             }
         }
 
+        // Option 1 Logic: Toggle the input field visibility depending on option selected
+        function togglePickupField() {
+            const pickupSelection = document.getElementById('pickup').value;
+            const inputGroup = document.getElementById('pickupLocationGroup');
+            const badge = document.getElementById('pickupZoneBadge');
+            
+            if (pickupSelection.includes("Yes")) {
+                inputGroup.style.display = "block";
+            } else {
+                inputGroup.style.display = "none";
+                badge.style.display = "none";
+                document.getElementById('pickupLocation').value = "";
+            }
+        }
+
+        // Option 1 Logic: Dynamic verification and local neighborhood boundary check
+        function checkPickupZone() {
+            const query = document.getElementById('pickupLocation').value.toLowerCase().trim();
+            const badge = document.getElementById('pickupZoneBadge');
+
+            if (query.length < 3) {
+                badge.style.display = "none";
+                return;
+            }
+
+            // High priority local operations free radius zone lists
+            const freeZones = ['yousufguda', 'sri nagar colony', 'srinagar colony', 'navodaya colony', 'balkampet', 'sanath nagar', 'sanathnagar', 'banjara hills', 'banjarahills'];
+            // Adjacent logistics zones list
+            const dispatchZones = ['madhapur', 'jubilee hills', 'jubileehills', 'ameerpet', 'begumpet', 'panjagutta', 'punjagutta', 'khairatabad'];
+
+            let matchFree = freeZones.some(zone => query.includes(zone));
+            let matchDispatch = dispatchZones.some(zone => query.includes(zone));
+
+            if (matchFree) {
+                badge.className = "pickup-zone-status zone-free";
+                badge.innerHTML = "🟢 Within Free Pick-Up Zone!";
+                badge.style.display = "block";
+            } else if (matchDispatch) {
+                badge.className = "pickup-zone-status zone-dispatch";
+                badge.innerHTML = "🏍️ Service Available via Rider Dispatch";
+                badge.style.display = "block";
+            } else {
+                badge.className = "pickup-zone-status zone-dispatch";
+                badge.innerHTML = "📍 Location logged • Distance rate calculated at drop-off";
+                badge.style.display = "block";
+            }
+        }
+
         // Trigger time checker immediately upon load
         window.addEventListener('DOMContentLoaded', updateLiveShopStatus);
 
@@ -1182,24 +1314,29 @@
             window.open(`https://wa.me/${whatsappNumber}?text=${sosMessage}`, '_blank');
         }
 
-        // Regular Booking Submission Process
+        // Regular Booking Submission Process updated with dynamic Option 1 address elements
         function sendToWhatsApp(event) {
             event.preventDefault(); 
             
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
+            const brand = document.getElementById('bikeBrand').value;
+            const type = document.getElementById('bikeType').value;
             const service = document.getElementById('service').value;
             const pickup = document.getElementById('pickup').value;
+            const locationInput = document.getElementById('pickupLocation').value;
             const notes = document.getElementById('notes').value || "None provided";
             
+            const logisticsInfo = locationInput ? `${pickup} (Location: ${locationInput})` : pickup;
             const whatsappNumber = "919346227717"; 
             
             const textMessage = `*New Booking Request - Pro Moto Hub*%0A%0A` +
                                 `*Customer Name:* ${encodeURIComponent(name)}%0A` +
                                 `*Customer Contact:* ${encodeURIComponent(phone)}%0A` +
+                                `*Vehicle Details:* ${encodeURIComponent(brand)} (${encodeURIComponent(type)})%0A` +
                                 `*Service Needed:* ${encodeURIComponent(service)}%0A` +
-                                `*Pick-Up Status:* ${encodeURIComponent(pickup)}%0A` +
-                                `*Vehicle/Notes/Location:* ${encodeURIComponent(notes)}`;
+                                `*Logistics/Pick-Up:* ${encodeURIComponent(logisticsInfo)}%0A` +
+                                `*Special Notes:* ${encodeURIComponent(notes)}`;
             
             window.open(`https://wa.me/${whatsappNumber}?text=${textMessage}`, '_blank');
         }
