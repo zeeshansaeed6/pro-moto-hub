@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Pro Moto Hub | Premium Two-Wheeler Services Hyderabad</title>
     <style>
         /* --- Global Reset & Variables --- */
@@ -32,6 +32,7 @@
             color: var(--text-main);
             line-height: 1.6;
             position: relative;
+            overflow-x: hidden; /* Prevents horizontal scrolling bugs on mobile */
         }
 
         /* --- Navigation Bar --- */
@@ -90,6 +91,7 @@
             border-radius: 4px;
             font-weight: 600;
             transition: background-color 0.3s;
+            white-space: nowrap; /* Prevents button text from stacking on narrow screens */
         }
 
         .nav-cta:hover {
@@ -111,7 +113,8 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            /* Fluid typography: scales dynamically between mobile and desktop */
+            font-size: clamp(2.5rem, 5vw, 4rem); 
             font-weight: 800;
             margin-bottom: 1rem;
             letter-spacing: -1px;
@@ -123,7 +126,8 @@
         }
 
         .hero p {
-            font-size: 1.25rem;
+            /* Fluid typography for subtitle */
+            font-size: clamp(1rem, 2vw, 1.25rem);
             color: var(--text-muted);
             max-width: 600px;
             margin-bottom: 2.5rem;
@@ -156,6 +160,7 @@
             padding: 1.5rem;
             border-radius: 8px;
             max-width: 1200px;
+            width: 90%; /* Fluid width ensures it fits mobile screens perfectly */
             margin: -3rem auto 3rem auto;
             display: flex;
             align-items: center;
@@ -270,6 +275,7 @@
             border-radius: 8px;
             transition: transform 0.3s, border-color 0.3s;
             text-align: left;
+            height: 100%;
         }
 
         .service-card:hover {
@@ -307,6 +313,7 @@
         .gallery-tabs {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 2rem;
         }
@@ -330,7 +337,7 @@
 
         .gallery-display {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             max-width: 900px;
             margin: 0 auto;
@@ -349,6 +356,7 @@
             border: 1px solid var(--border);
             border-radius: 8px;
             overflow: hidden;
+            width: 100%;
         }
 
         .gallery-box img {
@@ -561,7 +569,7 @@
             transform: translateY(-2px);
         }
 
-        /* --- Live Timing Status Badge Core Style Rules --- */
+        /* --- Live Timing Status Badge Classes --- */
         .live-status-badge {
             display: inline-block;
             padding: 0.3rem 0.8rem;
@@ -591,13 +599,14 @@
             display: flex;
             gap: 1rem;
             width: 100%;
+            flex-wrap: wrap; /* Triggers responsive stacking */
         }
 
         .form-row-group .form-group {
-            flex: 1;
+            flex: 1 1 200px; /* Allows dropdowns to share space or stack on small screens */
         }
 
-        /* --- Option 1: Pick-Up Zone Distance Checker Style Configurations --- */
+        /* --- Pick-Up Zone Distance Checker Styles --- */
         .pickup-zone-status {
             display: none;
             font-size: 0.85rem;
@@ -695,6 +704,7 @@
 
         .form-group {
             margin-bottom: 1.5rem;
+            width: 100%;
         }
 
         .form-group label {
@@ -706,12 +716,13 @@
 
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
+            /* Enhanced padding & explicit 16px font size ensures mobile accessibility and prevents iOS auto-zoom */
+            padding: 1rem 0.8rem;
             background-color: var(--bg-card);
             border: 1px solid var(--border);
             color: var(--text-main);
             border-radius: 4px;
-            font-size: 1rem;
+            font-size: 16px; 
         }
 
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
@@ -723,7 +734,7 @@
         .emergency-btn {
             background-color: var(--emergency-red);
             color: white;
-            padding: 0.8rem;
+            padding: 1rem;
             font-weight: 700;
             text-transform: uppercase;
             border: none;
@@ -804,28 +815,30 @@
             margin-bottom: 0.5rem;
         }
 
-        /* --- Responsive Design --- */
+        /* =========================================
+           RESPONSIVE MEDIA QUERIES
+           ========================================= */
+
+        /* Tablet Adjustments */
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
             .contact-layout {
                 grid-template-columns: 1fr;
             }
             .map-container {
                 min-height: 350px;
             }
+            .feature-banner {
+                width: 95%;
+            }
         }
 
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
             nav {
                 display: none;
             }
             .hero {
                 padding-top: 10rem;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
             }
             .form-row-group {
                 flex-direction: column;
@@ -836,9 +849,13 @@
                 text-align: center;
                 margin: -2rem 1rem 3rem 1rem;
                 padding: 1.2rem;
+                width: auto;
             }
             .gallery-section {
                 padding: 1.5rem;
+            }
+            .gallery-display {
+                grid-template-columns: 1fr;
             }
             .map-container {
                 min-height: 300px;
@@ -993,8 +1010,6 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-
-http://googleusercontent.com/map_location_reference/1
                     Yes. At [Pro Moto Hub](http://googleusercontent.com/map_location_reference/0), we deal strictly in genuine OEM parts and high-quality lubricants to guarantee optimal vehicle safety, performance, and long life.
                 </div>
             </div>
