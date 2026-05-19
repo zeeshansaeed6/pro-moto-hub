@@ -91,7 +91,7 @@
             border-radius: 4px;
             font-weight: 600;
             transition: background-color 0.3s;
-            white-space: nowrap; /* Prevents button text from stacking on narrow screens */
+            white-space: nowrap;
         }
 
         .nav-cta:hover {
@@ -113,7 +113,6 @@
         }
 
         .hero h1 {
-            /* Fluid typography: scales dynamically between mobile and desktop */
             font-size: clamp(2.5rem, 5vw, 4rem); 
             font-weight: 800;
             margin-bottom: 1rem;
@@ -126,7 +125,6 @@
         }
 
         .hero p {
-            /* Fluid typography for subtitle */
             font-size: clamp(1rem, 2vw, 1.25rem);
             color: var(--text-muted);
             max-width: 600px;
@@ -160,7 +158,7 @@
             padding: 1.5rem;
             border-radius: 8px;
             max-width: 1200px;
-            width: 90%; /* Fluid width ensures it fits mobile screens perfectly */
+            width: 90%;
             margin: -3rem auto 3rem auto;
             display: flex;
             align-items: center;
@@ -193,7 +191,7 @@
             50% { transform: translateY(-5px); }
         }
 
-        /* --- Section Styling --- */
+        /* --- Global Grid Formatting --- */
         section {
             padding: 5rem 2rem;
             max-width: 1200px;
@@ -241,7 +239,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
@@ -261,7 +259,7 @@
             border-color: var(--primary);
         }
 
-        /* --- Services Grid --- */
+        /* --- Services Auto-Adapting Grid --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -300,7 +298,7 @@
             font-size: 0.95rem;
         }
 
-        /* --- Before/After Gallery --- */
+        /* --- Gallery Component --- */
         .gallery-section {
             background-color: var(--bg-surface);
             border: 1px solid var(--border);
@@ -433,7 +431,7 @@
             transform: rotate(45deg);
         }
 
-        /* --- Google-Style Review Grid Styling --- */
+        /* --- Google-Style Reviews --- */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -569,7 +567,7 @@
             transform: translateY(-2px);
         }
 
-        /* --- Live Timing Status Badge Classes --- */
+        /* --- Live Status & Form Formatting --- */
         .live-status-badge {
             display: inline-block;
             padding: 0.3rem 0.8rem;
@@ -594,19 +592,17 @@
             border: 1px solid #ff4444;
         }
 
-        /* --- Grid Dropdown Layout Row --- */
         .form-row-group {
             display: flex;
             gap: 1rem;
             width: 100%;
-            flex-wrap: wrap; /* Triggers responsive stacking */
+            flex-wrap: wrap; 
         }
 
         .form-row-group .form-group {
-            flex: 1 1 200px; /* Allows dropdowns to share space or stack on small screens */
+            flex: 1 1 200px;
         }
 
-        /* --- Pick-Up Zone Distance Checker Styles --- */
         .pickup-zone-status {
             display: none;
             font-size: 0.85rem;
@@ -635,7 +631,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- About & Timing Section --- */
+        /* --- About & Contact Layout Sections --- */
         .info-section {
             background-color: var(--bg-surface);
             border-radius: 12px;
@@ -682,7 +678,6 @@
             color: var(--text-main);
         }
 
-        /* --- Contact Form & Map Section --- */
         .contact-layout {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -716,7 +711,6 @@
 
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            /* Enhanced padding & explicit 16px font size ensures mobile accessibility and prevents iOS auto-zoom */
             padding: 1rem 0.8rem;
             background-color: var(--bg-card);
             border: 1px solid var(--border);
@@ -730,7 +724,6 @@
             border-color: var(--primary);
         }
 
-        /* Emergency SOS Widget Button */
         .emergency-btn {
             background-color: var(--emergency-red);
             color: white;
@@ -776,7 +769,6 @@
             border: 0;
         }
 
-        /* --- Floating Sticky Elements --- */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -801,7 +793,6 @@
             transform: scale(1.1);
         }
 
-        /* --- Footer --- */
         footer {
             background-color: #0b0b0b;
             padding: 3rem 2rem;
@@ -816,7 +807,7 @@
         }
 
         /* =========================================
-           RESPONSIVE MEDIA QUERIES
+           RESPONSIVE MEDIA QUERIES (BUG FIXES)
            ========================================= */
 
         /* Tablet Adjustments */
@@ -839,6 +830,17 @@
             }
             .hero {
                 padding-top: 10rem;
+            }
+            /* Reduce page padding so items don't squeeze and cut off */
+            section {
+                padding: 4rem 1rem;
+            }
+            .info-section {
+                padding: 2rem 1rem; 
+            }
+            /* Adjust font size of the hours table so it fits comfortably */
+            .timing-list li {
+                font-size: 0.9rem;
             }
             .form-row-group {
                 flex-direction: column;
@@ -1010,7 +1012,7 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    Yes. At [Pro Moto Hub](http://googleusercontent.com/map_location_reference/0), we deal strictly in genuine OEM parts and high-quality lubricants to guarantee optimal vehicle safety, performance, and long life.
+                    Yes. At <strong>Pro Moto Hub</strong>, we deal strictly in genuine OEM parts and high-quality lubricants to guarantee optimal vehicle safety, performance, and long life.
                 </div>
             </div>
 
@@ -1093,7 +1095,7 @@
                 
                 <div class="info-block">
                     <h3>Pro Moto Hub</h3>
-                    <p>Located in the heart of Yousufguda/Sri Nagar Colony, [Pro Moto Hub](http://googleusercontent.com/map_location_reference/2) is a trusted center for premium bike repair and maintenance. Our mechanics combine technical precision with high-quality parts to extend your vehicle's lifecycle and optimize performance.</p>
+                    <p>Located in the heart of Yousufguda/Sri Nagar Colony, <strong>Pro Moto Hub</strong> is a trusted center for premium bike repair and maintenance. Our mechanics combine technical precision with high-quality parts to extend your vehicle's lifecycle and optimize performance.</p>
                     <p><strong>Address:</strong><br>
                     8-3-678/42/c/6, Near Ganapathi Complex,<br>
                     Sri Nagar Colony, Navodaya Colony,<br>
